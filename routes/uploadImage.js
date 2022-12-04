@@ -18,17 +18,15 @@ router.post("/", async (req, res) => {
 
   var uploadPath = path.join(newPath, "public", "images", blogImageName);
 
-  res.send(uploadPath);
-
   if (!imgList.includes(extention)) {
     res.status(500).send("Invalid file!");
   }
   await blogImage.mv(uploadPath, (err) => {
-    console.log(uploadPath);
     if (err) {
       res.status(500).send(err);
     }
-    res.send("File uploaded to " + uploadPath);
+    // res.send("File uploaded to " + uploadPath);
+    res.sendFile(uploadPath);
   });
 });
 
