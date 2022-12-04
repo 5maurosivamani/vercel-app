@@ -12,11 +12,13 @@ router.post("/", async (req, res) => {
   const extention = path.extname(blogImage.name);
   const imgList = [".png", ".jpg", ".jpeg", ".gif"];
   const blogImageName = req.body.imageName;
-  // const pathArray = __dirname.split("/");
-  // const newPathArray = pathArray.splice(0, pathArray.length - 1);
-  // const newPath = newPathArray.join("/");
+  const pathArray = __dirname.split("/");
+  const newPathArray = pathArray.splice(0, pathArray.length - 1);
+  const newPath = newPathArray.join("/");
 
-  var uploadPath = path.join("..", "public", "images", blogImageName);
+  var uploadPath = path.join(newPath, "public", "images", blogImageName);
+
+  console.log(pathArray);
 
   if (!imgList.includes(extention)) {
     res.status(500).send("Invalid file!");
