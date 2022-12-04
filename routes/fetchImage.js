@@ -13,7 +13,7 @@ router.get("/:img_name", (req, res) => {
   var imagePath = path.join(newPath, "public", "images", imageName);
 
   // for heroku server
-  var newImagePath = "images/" + imageName;
+  // var newImagePath = "images/" + imageName;
 
   if (fs.existsSync(imagePath)) {
     res.send(imagePath);
