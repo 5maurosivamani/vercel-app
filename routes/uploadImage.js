@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   }
   await blogImage.mv(uploadPath, (err) => {
     if (err) {
-      res.status(500).send(err);
+      res.status(500).send(err + uploadPath);
     }
     res.send("File uploaded to " + uploadPath);
   });
