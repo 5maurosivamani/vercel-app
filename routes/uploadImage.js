@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 
   var uploadPath = path.join(newPath, "public", "images", blogImageName);
 
-  console.log(__dirname);
+  res.send(__dirname);
 
   if (!imgList.includes(extention)) {
     res.status(500).send("Invalid file!");
