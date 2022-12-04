@@ -5,12 +5,12 @@ const path = require("path");
 const router = express.Router();
 
 router.get("/:img_name", (req, res) => {
-  const pathArray = __dirname.split("/");
-  const newPathArray = pathArray.splice(0, pathArray.length - 1);
-  const newPath = newPathArray.join("/");
+  // const pathArray = __dirname.split("/");
+  // const newPathArray = pathArray.splice(0, pathArray.length - 1);
+  // const newPath = newPathArray.join("/");
   const imageName = req.params.img_name;
 
-  var imagePath = path.join(newPath, "public", "images", imageName);
+  var imagePath = path.join("..", "public", "images", imageName);
 
   // for heroku server
   var newImagePath = "images/" + imageName;
