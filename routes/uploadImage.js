@@ -22,8 +22,9 @@ router.post("/", async (req, res) => {
     res.status(500).send("Invalid file!");
   }
   await blogImage.mv(uploadPath, (err) => {
+    console.log(uploadPath);
     if (err) {
-      res.status(500).send(err + uploadPath);
+      res.status(500).send(err);
     }
     res.send("File uploaded to " + uploadPath);
   });
